@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ 宣传页面</title>
+    <style>
+        body {
+            font-family: "宋体";
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #e6f7ff, #e6e6fa);
+            min-height: 100vh;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 第一板块：淡紫色→浅蓝色渐变背景，居中显示QQ */
+        .section1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #e6e6fa, #e6f7ff);
+            padding: 10px 20px;
+        }
+
+        .qq-logo {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333; /* 深灰色标题，突出QQ标识 */
+        }
+
+        /* 卡通企鹅与两侧竖排文字容器 */
+        .cartoon-penguin-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            margin: 20px 0;
+        }
+
+        /* 竖排紫色艺术字样式 */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            font-size: 16px;
+            font-weight: normal;
+            font-family: "Microsoft YaHei", "STKaiti", "楷体", "SimHei", sans-serif;
+            background: linear-gradient(to bottom, #9370db, #c8a2c8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 1px 3px rgba(128, 0, 128, 0.2);
+        }
+
+        /* 卡通企鹅圆形容器：蓝白渐变边框，贴合企鹅风格 */
+        .penguin-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%; /* 圆形裁剪，适配头像 */
+            padding: 3px;
+            background: linear-gradient(to right, #4FC3F7, #0288D1); /* QQ蓝渐变边框，增强品牌感 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.7); /* 白色细边，柔和视觉 */
+        }
+
+        /* 卡通企鹅图片：适配圆形，避免拉伸 */
+        .cartoon-penguin-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #F5F7FA; /* 加载延迟时显示浅灰背景，避免空白 */
+        }
+
+        /* 第二、三、四板块：淡蓝色和淡紫色渐变背景 */
+        .section2, .section3, .section4 {
+            text-align: center;
+            background: linear-gradient(135deg, #e6f7ff, #e6e6fa);
+        }
+
+        .section2 p:first-child {
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .section2 p:nth-child(2) {
+            color: #c8a2c8;
+            font-size: 16px;
+        }
+
+        .logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .logo-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            background-color: #e0c095;
+        }
+
+        .section3 p:first-child {
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .section3 p:nth-child(2) {
+            color: #ff8a65;
+            font-size: 16px;
+        }
+
+        .section3 p:nth-child(3) {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .custom-image-container {
+            width: 120px;
+            height: 120px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(to bottom, pink, pink, transparent);
+            overflow: hidden;
+        }
+
+        .custom-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .heart {
+            color: red;
+            font-size: 14px;
+        }
+
+        .sub-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .sub-image {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            position: relative;
+        }
+
+        .sub-image1 {
+            background: linear-gradient(to bottom, blue, pink);
+        }
+
+        .sub-image2 {
+            background: linear-gradient(to bottom, purple, #d8bfd8);
+        }
+
+        .sub-image3 {
+            background: linear-gradient(to bottom, #dda0dd, #e6e6fa);
+        }
+
+        .sub-image4 {
+            background: linear-gradient(to bottom, #ffb6c1, #fff0f5);
+        }
+
+        .sub-image .heart {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+        }
+
+        .section4 p:first-child {
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .section4 .status-text {
+            color: #d0bfff;
+            font-size: 14px;
+        }
+
+        .girl-container {
+            display: flex;
+            justify-content: center;
+            margin: 15px auto;
+            padding: 10px;
+            background: linear-gradient(135deg, #f9e6f7, #e6e0f8);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(217, 179, 255, 0.3);
+            max-width: 300px;
+        }
+
+        .final-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .final-penguin {
+            width: 100px;
+            height: 100px;
+            margin: 15px auto;
+            background: linear-gradient(to right, #4FC3F7, #0288D1); /* 同步蓝渐变，视觉统一 */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* 响应式适配：小屏幕优化 */
+        @media (max-width: 480px) {
+            .cartoon-penguin-wrapper {
+                gap: 30px; /* 缩小文字与头像间距 */
+            }
+            .vertical-text {
+                font-size: 14px; /* 缩小竖排文字 */
+            }
+            .penguin-circle {
+                width: 70px;
+                height: 70px; /* 缩小头像容器，避免拥挤 */
+            }
+            .section1 {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 第一板块：只保留QQ标题 -->
+    <div class="section section1">
+        <div class="qq-logo">QQ</div>
+    </div>
+
+    <!-- 核心：卡通企鹅头像 + 两侧竖排文字 -->
+    <div class="cartoon-penguin-wrapper">
+        <div class="vertical-text">让世界更紧密</div>
+        <div class="penguin-circle">
+            <!-- 卡通企鹅图片：Q版风格，适配圆形，贴合QQ品牌调性 -->
+            <img src="https://picsum.photos/id/239/200/200" alt="卡通企鹅头像" class="cartoon-penguin-img">
+        </div>
+        <div class="vertical-text">让生活更精彩</div>
+    </div>
+
+    <!-- 第二板块：下载入口 -->
+    <div class="section section2">
+        <p>轻松做自己</p>
+        <p>下载最新QQ</p>
+        <div class="logos">
+            <div class="logo-row">
+                <div class="logo">iOS</div>
+                <div class="logo">Android</div>
+            </div>
+            <div class="logo-row">
+                <div class="logo">macOS</div>
+                <div class="logo">Windows</div>
+                <div class="logo">Linux</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第三板块：好友搭子功能 -->
+    <div class="section section3">
+        <p>好友关系 做亲密搭子</p>
+        <p>多元搭子 多元社交</p>
+        <div class="custom-image-container">
+            <!-- QQ页面展示图（模拟界面） -->
+            <img src="https://picsum.photos/id/0/200/200" alt="QQ页面展示图" class="custom-image">
+        </div>
+        <div class="sub-images">
+            <div class="sub-image sub-image1">情侣 <span class="heart">❤</span></div>
+            <div class="sub-image sub-image2">基友 <span class="heart">❤</span></div>
+            <div class="sub-image sub-image3">死党 <span class="heart">❤</span></div>
+            <div class="sub-image sub-image4">运动搭子 <span class="heart">❤</span></div>
+        </div>
+    </div>
+
+    <!-- 第四板块：在线状态功能 -->
+    <div class="section section4">
+        <p>在线状态</p>
+        <p class="status-text">个人状态 自由定义</p>
+        <div class="girl-container">
+            <!-- 个人状态展示图（柔和风格） -->
+            <img src="https://picsum.photos/id/1027/300/200" alt="个人状态展示图" class="final-image">
+        </div>
+        <div class="final-penguin">QQ</div>
+    </div>
+</body>
+</html>
