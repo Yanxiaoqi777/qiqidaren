@@ -1,0 +1,6 @@
+qiqidaren/
+├─ job 1.html       # 你的HTML文件
+└─ images/          # 新建的图片文件夹
+   ├─ touxiang1.jpg 
+   ├─ qq-page.png   # 可将原长文件名简化为短名（如 QQ 页面展示图改名为 qq-page.png）
+   └─ portrait.jpg  # 原 646e37c5f23391b3bcc023cbf7cfc74c.jpg 简化为 portrait.jpg
